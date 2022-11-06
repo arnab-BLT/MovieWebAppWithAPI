@@ -17,6 +17,11 @@ export class MovieService {
     return of(res.results.slice(0, count));
    }));
   }
+  getsimmovies(id: string, count: number= 4){
+    return this.http.get<MovieDto>( `${this.baseurl}/movie/${id}/similar?api_key=${this.apikeyurl}`).pipe(switchMap(res =>{
+     return of(res.results.slice(0, count));
+    }));
+   }
   getmovievideos(id: string){
     return this.http.get<MovieVideoDto>( `${this.baseurl}/movie/${id}/videos?api_key=${this.apikeyurl}`).pipe(switchMap(res =>{
      return of(res.results);

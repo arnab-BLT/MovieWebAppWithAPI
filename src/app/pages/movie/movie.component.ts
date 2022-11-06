@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
 import { IMAGESIZE } from '../../constants/imagesize';
-import { Movieactimages, MovieDetail, MovieImageDto, MovieVideo, MovieVideoDto, posterimage } from '../../movies/movies';
+import { Movie, Movieactimages, MovieDetail, MovieImageDto, MovieVideo, MovieVideoDto, posterimage } from '../../movies/movies';
 import { MovieService } from '../../service/movie.service';
 
 @Component({
@@ -9,12 +10,13 @@ import { MovieService } from '../../service/movie.service';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.scss']
 })
-export class MovieComponent implements OnInit {
-[x: string]: any;
+export class MovieComponent implements OnInit, OnDestroy {
+  // [x: string]: any;
   moviesingle: MovieDetail | null= null;
   movievide: MovieVideo[] = [];
   movieimages: MovieImageDto | null = null;
   movieactimages: Movieactimages | null =null;
+  simmovies: Movie[]=[];
   imgsizes = IMAGESIZE;
   constructor(private routeing: ActivatedRoute, private movieserv: MovieService) { }
 
@@ -24,10 +26,12 @@ export class MovieComponent implements OnInit {
       this.getMovideos(id);
       this.getmovieimg(id);
       this.getactimg(id);
+      this.getsimmovies(id);
     });
   }
+
   getmoviedetail(id:string){
-    this.movieserv.getmovie(id).subscribe(moviedetail=> {
+    this.movieserv.getmovie(id).pipe(first()).subscribe(moviedetail=> {
       this.moviesingle = moviedetail;
     })
   }
@@ -53,6 +57,15 @@ export class MovieComponent implements OnInit {
       this.movievide = movievidep;
       // console.log(movievidep);
     })
+  }
+  getsimmovies(id:string){
+    this.movieserv.getsimmovies(id).subscribe((listsimmovies)=>{
+      this.simmovies = listsimmovies;
+      // console.log(this.poppularmovie);
+    });
+  }
+  ngOnDestroy(): void {
+    console.log('Destroy successfully');
   }
 
 }
