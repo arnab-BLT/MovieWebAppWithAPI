@@ -1,0 +1,19 @@
+<!-- <app-slider [items]="poppularmovie"> </app-slider> -->
+<!-- <pre>{{movies | json}}</pre  > -->
+  <!-- <item-banner [items]="nowPlaymovie" title="Now Playing Movies"></item-banner>
+<item-banner [items]="upcommingmovie" title="Up Comming Movies"></item-banner> -->
+<!-- <item-banner [items]="latestmovie" title="Latest Movies"></item-banner> -->
+<!-- <item-banner [items]="toratedmovie" title="Top Rated Movies"></item-banner>
+<item-banner [items]="poppularmovie" title="Poppular Movies"></item-banner> -->
+<div class="container">
+
+  <div class="grid" >
+    <div class="col-6 md:col-4 lg:col-3" *ngFor="let pagemovie of pagemovies">
+      <movie-item [upmovie]="pagemovie"></movie-item>
+    </div>
+
+  </div>
+  <div class="pagenation">
+    <p-paginator [rows]="20" [totalRecords]="10000" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<!-- <pre>
+  {{moviesingle | json}}
+</pre> -->
+<ng-container *ngIf="moviesingle">
+  <app-slider [items]="[moviesingle]" [isBanner] = "true"> </app-slider>
+ <div class="container">
+  <div class="row">
+    <p-tabView>
+      <p-tabPanel header="Overviews">
+         <div class="grid">
+          <div class="col-12 md:col-3 lg:col-4">
+            <img class="overviwposterimage" [src]="imgsizes.medium + moviesingle.poster_path" [alt]="moviesingle.title">
+          </div>
+          <div class="col-12 md:col-9 lg:col-8">
+            <h3 class="over_main_hd">{{moviesingle.title}}</h3>
+            <span class="tagli">
+              {{moviesingle.tagline}}
+            </span>
+            <p class="over_tab_para">{{moviesingle.overview}}</p>
+
+            <div class="statusdetails">
+              <label>Original Title</label>
+              <span>{{moviesingle.original_title}}</span>
+            </div>
+            <div class="statusdetails">
+              <label>Original Language</label>
+              <span>{{moviesingle.original_language}}</span>
+            </div>
+            <div class="statusdetails">
+              <label>Durations</label>
+              <span>{{moviesingle.runtime}} min</span>
+            </div>
+            <div class="statusdetails">
+              <label>Release Date</label>
+              <span>{{moviesingle.release_date}}</span>
+            </div>
+            <div class="statusdetails">
+              <label>Movie Budget</label>
+              <span>{{moviesingle.budget}}</span>
+            </div>
+            <div class="statusdetails">
+              <label>Belongs To</label>
+              <span>
+                <span *ngFor="let genre of moviesingle.genres">
+                  {{genre.name}},
+                </span>
+              </span>
+            </div>
+            <div class="statusdetails">
+              <label>Productions</label>
+              <span>
+                <span *ngFor="let production of moviesingle.production_companies">
+                  {{production.name}},
+                </span>
+              </span>
+            </div>
+            <div class="statusdetails">
+              <label>Voting Avarage</label>
+              <span>{{moviesingle.vote_average}} / {{moviesingle.vote_count}}</span>
+            </div>
+
+          </div>
+         </div>
+      </p-tabPanel>
+      <p-tabPanel header="Videos">
+          <div class="grid">
+
+              <!-- <pre>{{movievide | json}}</pre> -->
+              <ng-container *ngFor="let movievid of movievide">
+                <div class="col-12 md:col-6 lg:col-6">
+                  <videoembade [key]="movievid.key" [site]="movievid.site"></videoembade>
+                </div>
+              </ng-container>
+
+
+
+          </div>
+      </p-tabPanel>
+      <p-tabPanel header="Images">
+          <!-- <div *ngFor="let movieimage of movieimages">
+            <img [src]="imgsizes.medium + movieimage.file_path" alt="">
+          </div> -->
+          <div class="grid">
+            <ng-container *ngFor="let movieimage of movieimages?.backdrops">
+              <div class="col-12 md:col-4 lg:col-4">
+                <p-image [src]="imgsizes.large + movieimage.file_path" alt="Image" width="100%" [preview]="true"></p-image>
+              </div>
+            </ng-container>
+          </div>
+      </p-tabPanel>
+      <!-- <p-tabPanel header="Actor/Actress">
+
+        <div class="grid" *ngIf="movieactimages">
+          <ng-container *ngFor="let movieactsimgact of movieactimages.cast">
+            <div class="col-12 md:col-4 lg:col-4">
+              <p-image [src]="imgsizes.large + movieactsimgact.profile_path" alt="Image" width="100%" [preview]="true"></p-image>
+            </div>
+          </ng-container>
+        </div>
+      </p-tabPanel> -->
+    </p-tabView>
+    <ng-container *ngIf="movieactimages">
+      <p-carousel  [value]="movieactimages.cast" [numVisible]="3" [numScroll]="1" >
+        <ng-template let-actor  pTemplate="item" >
+          <ng-container *ngIf="actor.profile_path" >
+            <div class="rel-cours">
+              <p-image  [src]="imgsizes.medium + actor.profile_path" alt="Image" width="100%"></p-image>
+              <p class="name-actor">{{ actor.name }}</p>
+            </div>
+          </ng-container>
+        </ng-template>
+      </p-carousel>
+    </ng-container>
+  </div>
+ </div>
+</ng-container>
+

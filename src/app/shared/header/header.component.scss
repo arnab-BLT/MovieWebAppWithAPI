@@ -1,0 +1,26 @@
+header {
+  background: #000000;
+  nav.navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+  }
+  ul.navbar-links {
+    li {
+        display: inline;
+        padding: 0px 5px;
+        margin: 0px 10px;
+        list-style: none;
+        text-decoration: none;
+        a{
+          list-style: none;
+        text-decoration: none;
+        color: #ffffff;
+        }
+    }
+  }
+}

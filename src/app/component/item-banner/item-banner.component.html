@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="header_titile">{{title}}</h2>
+  <div class="grid" >
+    <div class="col-6 md:col-4 lg:col-3" *ngFor="let item of items">
+      <movie-item [upmovie]="item"></movie-item>
+    </div>
+
+  </div>
+</div>

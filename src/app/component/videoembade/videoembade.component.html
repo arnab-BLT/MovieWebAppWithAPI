@@ -1,0 +1,12 @@
+<ng-container [ngSwitch]="site">
+  <ng-container *ngSwitchCase="'YouTube'">
+    <iframe class="ifram-width" width="560" height="315" [src]="videourl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Vimeo'">
+    <iframe class="ifram-width" [src]="videourl" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <!-- <iframe src="https://player.vimeo.com/video/747605362?h=5dc458ab4d" width="640" height="270" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <p><a href="https://vimeo.com/747605362">Indonesia. Volcanoes and Rainforests FPV exploration</a> from <a href="https://vimeo.com/timelabpro">Timelab Pro</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+  </ng-container>
+</ng-container>
+
+

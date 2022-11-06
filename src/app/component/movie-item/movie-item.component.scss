@@ -1,0 +1,43 @@
+.movie-item {
+  display: block;
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border: 1px solid grey;
+  height: 320px;
+  position: relative;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &-rating {
+    position: absolute;
+    background: #c5b607;
+    color: #ffffff;
+    padding: 1px 5px 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 110px;
+    text-align: center;
+    top: 6px;
+    left: 6px;
+    .app-icon {
+      font-size: 20px;
+      position: relative;
+      top: 3px;
+      padding-right: 5px;
+      line-height: normal;
+    }
+  }
+  &-image {
+    img{
+      width: 100%;
+      object-fit: cover;
+      height: 255px;
+    }
+  }
+  &-title {
+    font-size: 18px;
+    padding: 8px;
+}
+}
