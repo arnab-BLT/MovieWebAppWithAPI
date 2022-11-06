@@ -35,6 +35,7 @@ export class MovieComponent implements OnInit, OnDestroy {
       this.moviesingle = moviedetail;
     })
   }
+
   // getmovieimage(id:string){
   //   this.movieserv.getmovieimage(id).subscribe(movieimaged=> {
   //     this.movieimages = movieimaged;
