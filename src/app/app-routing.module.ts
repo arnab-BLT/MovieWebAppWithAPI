@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GenersComponent } from './pages/geners/geners.component';
+import { GenresComponent } from './pages/genres/genres.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { MoviesComponent } from './pages/movies/movies.component';
@@ -16,6 +16,10 @@ const routes: Routes = [
     component: MoviesComponent
   },
   {
+    path: "movies/genres/:genreId",
+    component: MoviesComponent
+  },
+  {
     path: "movie/:id",
     component: MovieComponent
   },
@@ -25,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: "geners",
-    component: GenersComponent
+    component: GenresComponent
   },
   {
     path: "**",

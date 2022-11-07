@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="ges_hd">
+    Movie Categorices
+  </h2>
+  <div class="grid">
+    <div *ngFor="let catmovie of catmovies " class="col-12 md:col-4 lg:col-3">
+
+      <a class="geresr_acn" [routerLink]="'/movies/genres/'+ catmovie.id">{{ catmovie.name }}</a>
+    </div>
+  </div>
+</div>

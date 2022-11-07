@@ -7,7 +7,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { GenersComponent } from './pages/geners/geners.component';
 import { TvshowsComponent } from './pages/tvshows/tvshows.component'
 import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './component/slider/slider.component';
@@ -20,6 +19,8 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { VideoembadeComponent } from './component/videoembade/videoembade.component';
 import {ImageModule} from 'primeng/image';
 import {CarouselModule} from 'primeng/carousel';
+import { GenresComponent } from './pages/genres/genres.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,13 @@ import {CarouselModule} from 'primeng/carousel';
     FooterComponent,
     HomeComponent,
     MoviesComponent,
-    GenersComponent,
     TvshowsComponent,
     SliderComponent,
     ItemBannerComponent,
     MovieItemComponent,
     MovieComponent,
-    VideoembadeComponent
+    VideoembadeComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +45,8 @@ import {CarouselModule} from 'primeng/carousel';
     PaginatorModule,
     TabViewModule,
     ImageModule,
-    CarouselModule
+    CarouselModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
